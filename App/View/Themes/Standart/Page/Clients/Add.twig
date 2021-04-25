@@ -1,0 +1,43 @@
+{% include constant('THEME_PATH') ~ '/Basic/Head.twig' %}
+
+    <div class="container main-container content-container">
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+                <h2 class="text-center">Add Client</h2>
+            </div>
+            <div class="col-4">
+                
+                {% if errors %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        <h4 class="mb-1">Error</h4>
+
+                        {% for error in errors %}
+                            <p class="mb-1">- {{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% elseif success %}
+                    <div class="alert alert-success text-center" role="alert">
+                        <h4 class="mb-1">Success</h4>
+                    </div>
+                {% endif %}
+
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control {{ errors.name ? 'is-invalid' }}" id="name" name="name" placeholder="Enter name" value="{{ errors ? validated.name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control {{ errors.phone ? 'is-invalid' }}" id="phone" name="phone" placeholder="Enter phone" value="{{ errors ? validated.phone }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control {{ errors.email ? 'is-invalid' }}" id="email" name="email" placeholder="Enter email" value="{{ errors ? validated.email }}">
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary mt-2 px-4">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% include constant('THEME_PATH') ~ '/Basic/Footer.twig' %}

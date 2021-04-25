@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "App/"
+        }
+    },
+    "require": {
+        "mikecao/flight": "^1.3",
+        "illuminate/database": "^8.15",
+        "vlucas/valitron": "^1.4",
+        "twig/twig": "^3.1",
+        "rakit/validation": "^1.4"
+    }
+}
